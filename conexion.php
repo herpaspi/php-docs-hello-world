@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Guardar Login Cefire</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <h1>Procesando Información de Login...</h1>
     <?php
     // Obtener variables de entorno
     $dbHost = getenv('DB_HOST');
@@ -71,6 +63,3 @@
   
     
 ?>
-    <p><a href="login.html">Volver al Login</a></p>
-</body>
-</html>
