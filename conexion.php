@@ -33,7 +33,8 @@ try {
     // Ejemplo: consulta sencilla
     $stmt = $pdo->query('SELECT NOW() AS fecha_actual;');
     $fila = $stmt->fetch();
-    echo "Conectado correctamente. Hora del servidor: " . $fila['fecha_actual'];
+    echo "Conectado correctamente. Hora del servidor: " . $fila['fecha_actual']."<br>";
+    try {
    
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                     
@@ -51,6 +52,13 @@ try {
                             echo "Usuario " . htmlspecialchars($login) . " registrado exitosamente usando sentencia preparada. Fecha insertada con NOW()";            
                     }            
                 }
+    }
+    catch(PDOException $e)
+    {
+         error_log('Error de conexión PDO: ' . $e->getMessage());
+        echo "Error al conectar con la base de datos: " . htmlspecialchars($e->getMessage());
+        exit;        
+    }
 
        
 } catch (PDOException $e) {
